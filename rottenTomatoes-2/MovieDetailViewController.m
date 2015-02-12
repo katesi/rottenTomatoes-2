@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UILabel *criticsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *audienceLabel;
+@property (weak, nonatomic) IBOutlet UIView *detailsView;
 
 @end
 
@@ -23,35 +24,33 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.titleLabel.text =  self.movie[@"title"];
     self.title = self.movie[@"title"];
     NSDictionary *ratings = self.movie[@"ratings"];
-  
+    
     self.criticsLabel.text =  [NSString stringWithFormat:@"%@",ratings[@"critics_score"]];
     self.audienceLabel.text =  [NSString stringWithFormat:@"%@",ratings[@"audience_score"]];
     
-    self.scrollView.contentSize = CGSizeMake(150, 800);
-    self.synopsisLabel.numberOfLines = 20;
-   
-    NSString *url_tmb = [self.movie valueForKeyPath:@"posters.thumbnail"];
-    NSString* url = [url_tmb stringByReplacingOccurrencesOfString:@"_tmb.jpg" withString:@"_ori.jpg"];
-    [self.posterView setImageWithURL:[NSURL URLWithString:url]];
-    
     self.synopsisLabel.text = self.movie[@"synopsis"];
+    [self.synopsisLabel sizeToFit];
     
-    CGSize maximumLabelSize = CGSizeMake(296, FLT_MAX);
+    NSString *thumbnailURL = [self.movie valueForKeyPath:@"posters.thumbnail"];
+    NSString *fullURL = [thumbnailURL stringByReplacingOccurrencesOfString:@"_tmb.jpg" withString:@"_ori.jpg"];
+    [self.posterView setImageWithURL:[NSURL URLWithString:fullURL]];
     
-    CGSize expectedLabelSize = [self.synopsisLabel.text sizeWithFont:self.synopsisLabel.font constrainedToSize:maximumLabelSize lineBreakMode:self.synopsisLabel.lineBreakMode];
-
-    CGRect newFrame = self.synopsisLabel.frame;
-    newFrame.size.height = expectedLabelSize.height;
-    self.synopsisLabel.frame = newFrame;
+    int viewWidth = self.scrollView.frame.size.width;
+    int viewHeight = self.synopsisLabel.frame.origin.y + self.synopsisLabel.frame.size.height;
     
+    CGRect detailsFrame = self.detailsView.frame;
+    detailsFrame.size.height = viewHeight + 20;
+    [self.detailsView setFrame:detailsFrame];
     
-    NSLog(@"%@", self.synopsisLabel);
+    self.scrollView.contentSize = CGSizeMake(viewWidth, self.detailsView.frame.origin.y + detailsFrame.size.height);
     
-    
-    
+    detailsFrame.size.height = viewHeight + 200;
+    [self.detailsView setFrame:detailsFrame];
+   
 }
 
 - (void)didReceiveMemoryWarning {

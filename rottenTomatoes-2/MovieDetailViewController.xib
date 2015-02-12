@@ -8,9 +8,10 @@
             <connections>
                 <outlet property="audienceLabel" destination="14h-xx-shO" id="hGe-MO-h9X"/>
                 <outlet property="criticsLabel" destination="Lg1-h4-56D" id="oK2-1V-Db2"/>
+                <outlet property="detailsView" destination="Xlw-8b-FKU" id="0lK-lV-bzM"/>
                 <outlet property="posterView" destination="qWO-Rk-lQj" id="Ajv-mr-3Vt"/>
                 <outlet property="scrollView" destination="cf1-Ub-ZEJ" id="vyw-4z-7HA"/>
-                <outlet property="synopsisLabel" destination="GLh-YK-yQG" id="fJo-rF-aUe"/>
+                <outlet property="synopsisLabel" destination="yjF-Uf-FAU" id="TUx-3b-a9J"/>
                 <outlet property="titleLabel" destination="NFE-h4-Liq" id="aGE-7Z-Gvg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -59,17 +60,24 @@
                     <rect key="frame" x="0.0" y="290" width="355" height="480"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GLh-YK-yQG">
-                            <rect key="frame" x="29" y="0.0" width="296" height="780"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                        <view contentMode="scaleToFill" id="Xlw-8b-FKU">
+                            <rect key="frame" x="0.0" y="0.0" width="355" height="480"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="yjF-Uf-FAU">
+                                    <rect key="frame" x="16" y="0.0" width="302" height="224"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                     </subviews>
                 </scrollView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlighted="YES" id="qWO-Rk-lQj">
-                    <rect key="frame" x="0.0" y="80" width="149" height="208"/>
+                    <rect key="frame" x="0.0" y="74" width="149" height="208"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>

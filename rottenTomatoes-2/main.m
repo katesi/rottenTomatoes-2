@@ -1,6 +1,6 @@
 //
 //  main.m
-//  rottenTomatoes-2
+//  rottenTomatoes-3
 //
 //  Created by Katerina Simonova on 2/11/15.
 //  Copyright (c) 2015 Katerina Simonova. All rights reserved.

@@ -1,12 +1,13 @@
 //
 //  AppDelegate.m
-//  rottenTomatoes-2
+//  RottenTomatoes
 //
-//  Created by Katerina Simonova on 2/11/15.
+//  Created by Katerina Simonova on 2/8/15.
 //  Copyright (c) 2015 Katerina Simonova. All rights reserved.
 //
 
 #import "AppDelegate.h"
+#import "MoviesViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc]
+                   initWithFrame:[[UIScreen mainScreen]
+                                  bounds]];
+    
+    MoviesViewController *vc = [[MoviesViewController alloc] init];
+    
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    vc.title = @"New movies";
+    
+    self.window.rootViewController = nvc;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
